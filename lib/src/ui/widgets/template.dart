@@ -1,16 +1,17 @@
-import 'package:arp_lib/src/ui/widgets/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:provider/single_child_widget.dart';
 
 class TemplateWidget extends StatefulWidget {
   final Widget child;
+  final Widget menu;
   final List<SingleChildWidget>? providers;
 
   const TemplateWidget({
     super.key,
     this.providers,
     required this.child,
+    required this.menu,
   });
 
   @override
@@ -32,7 +33,7 @@ class _TemplateWidgetState extends State<TemplateWidget> {
     return Scaffold(
       body: Row(
         children: [
-          const MenuWidget(),
+          widget.menu,
           Expanded(child: widget.child),
         ],
       ),
