@@ -1,6 +1,6 @@
 name: arp_lib
 description: "A new Flutter plugin project."
-version: 0.0.1+1
+version: 0.0.1+2
 # homepage:
 
 environment:
@@ -27,7 +27,7 @@ dependencies:
 
   responsive_builder: ^0.7.1
   simple_animations: ^5.0.2
-  rive: ^0.13.12
+  rive: ^0.13.13
 
 
   # Solo compatibles con Windows
