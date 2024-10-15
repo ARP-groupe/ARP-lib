@@ -1,6 +1,6 @@
 name: arp_lib
 description: "A new Flutter plugin project."
-version: 0.0.1+2
+version: 0.0.1+3
 # homepage:
 
 environment:
@@ -16,22 +16,23 @@ dependencies:
     git:
       url: https://github.com/Cavin6080/form_bloc.git
       path: packages/flutter_form_bloc
-
+  
   flutter_localized_locales: ^2.0.5
 
   excel: ^4.0.6
   path_provider: ^2.1.4
+  shared_preferences: ^2.3.2
 
   freezed_annotation: ^2.4.4
   http: ^1.2.2
 
   responsive_builder: ^0.7.1
   simple_animations: ^5.0.2
-  rive: ^0.13.13
+  rive: ^0.13.14
 
 
   # Solo compatibles con Windows
-  postgres: ^3.3.0 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
+  postgres: ^3.4.0 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
 
 dev_dependencies:
   flutter_test:

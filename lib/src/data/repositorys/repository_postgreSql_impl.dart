@@ -1,4 +1,8 @@
-part of 'repository_interface.dart';
+import 'package:arp_lib/src/data/models/v1.0.0/interfaces/arp_interface.dart';
+import 'package:arp_lib/src/utils/functions/repository_functions.dart';
+import 'package:postgres/postgres.dart';
+
+import 'repository_interface.dart'; // part of 'repository_interface.dart';
 
 class RepositoryPostgreSQLImpl implements RepositoryInterface {
   Connection? _connection;
@@ -47,21 +51,27 @@ class RepositoryPostgreSQLImpl implements RepositoryInterface {
   }
 
   @override
-  Future<bool> create(
-      {required String table, required ARPInterface data}) async {
+  Future<String?> create({
+    required String table,
+    required ARPInterface  data,
+  }) async {
     try {
       await connect();
 
-      await _connection?.execute("INSERT INTO $table ${data.toSql()}");
+      Result? result =
+          await _connection?.execute("INSERT INTO $table ${data.toSql()}");
+
+      String? id = (result![0][0] != null ? result[0][0].toString() : null);
 
       await _connection?.close();
-      return true;
+
+      return id;
     } catch (e) {
       print('Create failed: $e');
     }
 
     await _connection?.close();
-    return false;
+    return null;
   }
 
   @override
@@ -83,7 +93,8 @@ class RepositoryPostgreSQLImpl implements RepositoryInterface {
   }
 
   @override
-  Future<ARPInterface?> read({required String id}) async {
+  Future<ARPInterface ?> read(
+      {required String table, required String id}) async {
     try {
       await connect();
 
@@ -107,28 +118,27 @@ class RepositoryPostgreSQLImpl implements RepositoryInterface {
   }
 
   @override
-  Future<List<ARPInterface>> readList({
-    String columns = '*',
-    required String table,
-    ARPFilterInterface? filter,
-  }) async {
-    List<ARPInterface> list = [];
+  Future<List<ARPInterface >> readList(
+      {String columns = '*',
+      required String table,
+      ARPFilterInterface ? filter,
+      int limit = 500}) async {
+    List<ARPInterface > list = [];
 
     try {
       await connect();
 
+      print(
+          "SELECT $columns FROM $table ${filter != null ? filter.toSql() : ''} LIMIT $limit");
+
       // simple query
       final result0 = await _connection?.execute(
-          "SELECT $columns FROM $table ${filter != null ? filter.toSql() : ''} LIMIT 500");
+          "SELECT $columns FROM $table ${filter != null ? filter.toSql() : ''} LIMIT $limit");
 
       for (var element in result0!) {
-        ARPInterface? model;
+        ARPInterface ? model = repositoryFunctions.fromSql(table, element);
 
-        if (table == tableStops) {
-          model = stopFromSql(element);
-        } else if (table == tableVision) {
-          model = visionFromSql(element);
-        }
+       
 
         if (model != null) {
           list.add(model);
@@ -149,7 +159,7 @@ class RepositoryPostgreSQLImpl implements RepositoryInterface {
   Future<bool> update({
     required String table,
     required String id,
-    required ARPInterface data,
+    required ARPInterface  data,
   }) async {
     try {
       await connect();
