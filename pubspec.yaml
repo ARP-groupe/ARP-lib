@@ -20,29 +20,29 @@ dependencies:
   flutter_localized_locales: ^2.0.5
 
   excel: ^4.0.6
-  path_provider: ^2.1.4
-  shared_preferences: ^2.3.2
+  path_provider: ^2.1.5
+  shared_preferences: ^2.4.0
 
   freezed_annotation: ^2.4.4
-  http: ^1.2.2
+  http: ^1.3.0
 
   responsive_builder: ^0.7.1
-  simple_animations: ^5.0.2
-  rive: ^0.13.14
+  simple_animations: ^5.1.0
+  rive: ^0.13.20
 
 
   # Solo compatibles con Windows
-  postgres: ^3.4.0 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
+  postgres: ^3.5.0 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^2.4.12
-  built_value_generator: ^8.9.2
+  build_runner: ^2.4.14
+  built_value_generator: ^8.9.3
   freezed: ^2.5.7
 
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
