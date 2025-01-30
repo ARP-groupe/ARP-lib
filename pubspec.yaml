@@ -28,7 +28,7 @@ dependencies:
 
   responsive_builder: ^0.7.1
   simple_animations: ^5.1.0
-  rive: ^0.13.20
+  rive: ^0.13.19
 
 
   # Solo compatibles con Windows
