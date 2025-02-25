@@ -4,6 +4,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:rxdart/rxdart.dart';
 
 final modalController = BehaviorSubject<Widget>()..sink.add(const SizedBox());
+
 class TemplateWidget extends StatefulWidget {
   final Widget child;
   final Widget menu;
@@ -24,19 +25,18 @@ class _TemplateWidgetState extends State<TemplateWidget> {
   @override
   void initState() {
     // Controllers
-     modalController.sink.add(const SizedBox());
+    modalController.sink.add(const SizedBox());
 
     // Blocs
 
     super.initState();
   }
 
-  
   @override
   Widget build(BuildContext context) {
     if (widget.providers != null) {
       return MultiBlocProvider(
-        providers: widget.providers ?? [], 
+        providers: widget.providers ?? [],
         child: _body(),
       );
     }
@@ -49,16 +49,19 @@ class _TemplateWidgetState extends State<TemplateWidget> {
       body: Row(
         children: [
           widget.menu,
-          Stack(
-            children: [
-              Expanded(child: widget.child),
+          Expanded(
+            child: Stack(
+              children: [
+                widget.child,
 
-              // Modal
-              StreamBuilder(
-                stream: modalController,
-                builder: (context, snapshot) => snapshot.data ?? const SizedBox(),
-              ),
-            ],
+                // Modal
+                StreamBuilder(
+                  stream: modalController,
+                  builder: (context, snapshot) =>
+                      snapshot.data ?? const SizedBox(),
+                ),
+              ],
+            ),
           ),
         ],
       ),
