@@ -23,7 +23,7 @@ class _TemplateWidgetState extends State<TemplateWidget> {
   @override
   void initState() {
     // Controllers
-     modalController.sink.add(form);
+     modalController.sink.add(const SizedBox());
 
     // Blocs
 
