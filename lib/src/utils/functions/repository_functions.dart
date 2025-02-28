@@ -5,5 +5,9 @@ late RepositoryFunctionsInterface repositoryFunctions;
 
 abstract class RepositoryFunctionsInterface {
   //
-  ARPInterface ? fromSql(String table, ResultRow element);
+  ARPInterface? fromJson(String table, String element);
+
+  //
+  ARPInterface? fromSql(String table, ResultRow element);
 }
+
