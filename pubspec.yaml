@@ -21,29 +21,29 @@ dependencies:
 
   excel: ^4.0.6
   path_provider: ^2.1.5
-  shared_preferences: ^2.5.2
+  shared_preferences: ^2.5.3
 
-  freezed_annotation: ^3.0.0
-  http: ^1.3.0
-  url_launcher: ^6.3.1
+  freezed_annotation: ^3.1.0
+  http: ^1.5.0
+  url_launcher: ^6.3.2
 
   responsive_builder: ^0.7.1
-  simple_animations: ^5.1.0
+  simple_animations: ^5.2.0
   rive: ^0.13.20
 
 
   # Solo compatibles con Windows
-  postgres: ^3.5.4 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
+  postgres: ^3.5.6 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^2.4.15
-  built_value_generator: ^8.9.5
-  freezed: 3.0.4
+  build_runner: ^2.8.0
+  built_value_generator: ^8.12.0
+  freezed: 3.2.2
 
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
