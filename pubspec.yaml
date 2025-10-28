@@ -33,15 +33,15 @@ dependencies:
 
 
   # Solo compatibles con Windows
-  postgres: ^3.5.6 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
+  postgres: ^3.5.9 # muy bonito pero no es compatible con web           # sql_commander: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^2.8.0
+  build_runner: ^2.10.1
   built_value_generator: ^8.12.0
-  freezed: 3.2.2
+  freezed: 3.2.3
 
   flutter_lints: ^6.0.0
 
