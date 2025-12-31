@@ -1,5 +1,6 @@
 import 'package:arp_lib/src/data/models/v1.0.0/interfaces/arp_interface.dart';
 import 'package:postgres/postgres.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract class RepositoryInterface<model> {
   Future<String?> create({
