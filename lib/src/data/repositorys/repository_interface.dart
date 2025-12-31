@@ -37,4 +37,11 @@ abstract class RepositoryInterface<model> {
     String? database,
     required String query,
   });
+
+  void subscribe({
+    required String table, 
+    required BehaviorSubject controller,
+    ARPFilterInterface? filter,
+    Function? onChange, 
+  });
 }
