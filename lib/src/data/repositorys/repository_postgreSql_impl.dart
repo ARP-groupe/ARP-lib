@@ -86,11 +86,12 @@ class RepositoryPostgreSQLImpl implements RepositoryInterface {
   Future<bool> delete({
     required String table,
     required String id,
+    required String tagId,
   }) async {
     try {
       await connect();
 
-      String query = "DELETE FROM $table WHERE stop_id = '$id';";
+      String query = "DELETE FROM $table WHERE $tagId = '$id';";
 
       log(query);
       await _connection?.execute(query);
