@@ -32,6 +32,7 @@ abstract class RepositoryInterface<model> {
   Future<bool> delete({
     required String table,
     required String id,
+    required String tagId,
   });
 
   Future<Result?> setCommand({
