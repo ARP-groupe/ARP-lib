@@ -35,7 +35,7 @@ abstract class RepositoryInterface<model> {
     required String tagId,
   });
 
-  Future<Result?> setCommand({
+  Future<dynamic?> setCommand({
     String? database,
     required String query,
   });
